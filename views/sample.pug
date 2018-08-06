@@ -5,3 +5,7 @@ html
     body
         h1 This page is produced by Pug(Jade) engine
         p some paragraph here..
+        ul
+            for item in personList
+                li= item.id + ":"
+                p=item.firstName +' '+item.lastName

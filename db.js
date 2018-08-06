@@ -9,20 +9,37 @@ mongoose.connect(DB_URL);
 /**
   * 连接成功
   */
-mongoose.connection.on('connected', function () {    
-    console.log('Mongoose connection open to ' + DB_URL);  
-});    
+mongoose.connection.on('connected', function () {
+    console.log('Mongoose connection open to ' + DB_URL);
+});
+
+
+//connect to your database
+sql.connect(config, function (err) {
+    if (err) console.log(err);
+
+    //create Request object
+    var request = new sql.Request();
+    request.query('select * from Student', function (err, recordset) {
+        if (err) console.log(err);
+
+        //send records as a response
+        res.send(recordset);
+    });
+});
+
+
 
 /**
  * 连接异常
  */
-mongoose.connection.on('error',function (err) {    
-    console.log('Mongoose connection error: ' + err);  
-});    
- 
+mongoose.connection.on('error', function (err) {
+    console.log('Mongoose connection error: ' + err);
+});
+
 /**
  * 连接断开
  */
-mongoose.connection.on('disconnected', function () {    
-    console.log('Mongoose connection disconnected');  
+mongoose.connection.on('disconnected', function () {
+    console.log('Mongoose connection disconnected');
 });  
