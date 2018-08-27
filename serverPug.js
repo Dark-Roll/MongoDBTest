@@ -37,5 +37,5 @@ mongodata.personList(function(recordset){
 })
  
 app.listen(3000, function () {
-    console.log('Node server is running..');
+    console.log('Node server is running on port 3000 ..');
 });
