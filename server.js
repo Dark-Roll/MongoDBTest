@@ -21,7 +21,7 @@ mongoose.connect('mongodb://localhost/est', function (res) {
         doc1.save();
         doc1.save(function (err, doc) {
             //{ __v: 0, size: 'small', _id: 5970daba61162662b45a24a1 }
-            console.log(doc);
+            // console.log(doc);
         })
         doc2.save();
         doc3.save();
@@ -40,10 +40,14 @@ mongoose.connect('mongodb://localhost/est', function (res) {
         var MyModel = mongoose.model('MyModel', schema);
         var doc1 = new MyModel({ name: 'doc1', size: 'small' });
 
-        mongoose.spending.insert(doc1)
+        // console.log(doc1);
+        // console.log(mongoose);
+        // mongoose.spending.insert(doc1)
+        console.log(mongoose);
+        // .insert(doc1)
         // doc1.save();
 
-        console.log(doc1);
+        // console.log(doc1);
         doc1.save(function (err, doc) {
             //{ __v: 0, size: 'small', _id: 5970daba61162662b45a24a1 }
             console.log(doc);
